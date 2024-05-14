@@ -29,7 +29,9 @@ function Chatbot() {
     e.preventDefault();
     const inputCurrent = inputValue;
     setInputValue('');
-    setChatLog((prevChatLog) => [...prevChatLog, { role: 'user', content: inputCurrent }]);
+    if (inputCurrent) {
+      setChatLog((prevChatLog) => [...prevChatLog, { role: 'user', content: inputCurrent }]);
+    }
     setIsLoading(true);
     const completion = await getGroqChatCompletion(inputCurrent, chatLog, personality);
     setChatLog((prevChatLog) => [...prevChatLog, { role: 'assistant', content: completion.choices[0].message.content }]);
@@ -137,19 +139,22 @@ function Chatbot() {
         <form onSubmit={handleSubmit}
           className='flex flex-row w-[60%] justify-between place-items-center mb-4'
         >
+          <div className='flex flex-row relative w-full items-center '>
           <input
             type="text"
             value={inputValue}
             onChange={handleInputChange}
-            placeholder="Ask me anything..."
-            className='text-white border border-neutral-500/50 focus:outline-none bg-neutral-800/20 rounded p-2 flex flex-grow mr-1 my-2'
+            placeholder={isLoading ? 'Replying...' : 'Ask me anything...'}
+            disabled={isLoading}
+            className='text-white border border-neutral-500/50 focus:outline-none bg-neutral-800/20 rounded p-2 px-4 flex flex-grow mr-1 my-2 h-[50px] w-full'
           />
           <button type="submit"
-            className='bg-blue-500 rounded p-2 px-8 ml-1 my-2 flex flex-row justify-center items-center text-white gap-2 hover:bg-blue-600 duration-300'>Send <IoSend className='w-[20px] h-[20px]' />
+          disabled={isLoading}
+            className='absolute right-0 bg-blue-500 rounded p-2 px-4 mr-2 flex flex-row justify-center items-center text-white hover:bg-blue-600 duration-300 disabled:bg-gray-800 h-[40px]'><IoSend className='w-[20px] h-[20px]' />
           </button>
+          </div>
         </form>
       </div>
-      {/* <p>{response}</p> */}
     </div>
   );
 }
