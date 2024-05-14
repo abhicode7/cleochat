@@ -5,6 +5,7 @@ import PersonaContext from './context/PersonaContext';
 import { IoSend } from "react-icons/io5";
 import { AiOutlineExport } from "react-icons/ai";
 import { LuImport } from "react-icons/lu";
+import { MdOutlineDeleteForever } from "react-icons/md";
 
 
 
@@ -17,7 +18,7 @@ function Chatbot() {
   const [isLoading, setIsLoading] = useState(false);
   const { personality } = useContext(PersonaContext);
   const scrollRef = useRef(null);
-  
+
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
@@ -26,7 +27,7 @@ function Chatbot() {
   const handleSubmit = async (e) => {
 
     e.preventDefault();
-    const inputCurrent= inputValue;
+    const inputCurrent = inputValue;
     setInputValue('');
     setChatLog((prevChatLog) => [...prevChatLog, { role: 'user', content: inputCurrent }]);
     setIsLoading(true);
@@ -34,16 +35,36 @@ function Chatbot() {
     setChatLog((prevChatLog) => [...prevChatLog, { role: 'assistant', content: completion.choices[0].message.content }]);
     setResponse(completion.choices[0].message.content);
     setIsLoading(false);
-    
+
   };
 
-  useEffect(() => {
+  const handleDelete = () => {
     setChatLog([]);
+    localStorage.removeItem(personality.name);
+  }
+
+  // useEffect(() => {
+  //   setChatLog([]);
+  // }, [personality]);
+
+  useEffect(() => {
+
+    setChatLog([]);
+    // Load chat log from local storage when component mounts
+    const storedChatLog = localStorage.getItem(personality.name);
+    if (storedChatLog) {
+      setChatLog(JSON.parse(storedChatLog));
+    }
   }, [personality]);
 
   useEffect(() => {
+    // Save chat log to local storage whenever it changes
+    localStorage.setItem(personality.name, JSON.stringify(chatLog));
+  }, [chatLog]);
+
+  useEffect(() => {
     if (chatLog.length > 0) {
-    scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
+      scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
   })
 
@@ -53,14 +74,18 @@ function Chatbot() {
         <h1 className='text-3xl font-bold text-white p-4 flex flex-row justify-between w-[60%]'>
           <img src={personality.imageUrl} alt={personality.name} className='w-[95px] h-[120px] rounded-[10%] object-cover' />
           <div className='flex flex-col gap-4 text-white items-end'>{personality.name}
-          <div className='gap-4 flex flex-row'>
-          <button className='text-white'><LuImport className='bg-blue-500 w-[40px] h-[40px] p-2 rounded-[10%]' />
-</button>
-<button className='text-white'><AiOutlineExport className='bg-blue-500 w-[40px] h-[40px] p-2 rounded-[10%]' />
-</button>
-<button className='text-white'><AiOutlineExport className='bg-blue-500 w-[40px] h-[40px] p-2 rounded-[10%]' />
-</button>
-</div>
+            <div className='gap-4 flex flex-row'>
+              <button className='text-white'><LuImport className='bg-blue-500 w-[40px] h-[40px] p-2 rounded-[10%]' />
+              </button>
+              <button className='text-white'><AiOutlineExport className='bg-green-500 w-[40px] h-[40px] p-2 rounded-[10%]' />
+              </button>
+              <button className='text-white'
+                onClick={handleDelete}
+              >
+                <MdOutlineDeleteForever
+                  className='bg-red-500 hover:bg-red-700 duration-300 w-[40px] h-[40px] p-2 rounded-[10%]' />
+              </button>
+            </div>
           </div></h1>
         <div className='flex flex-col flex-grow w-[100%] items-center p-4 overflow-y-auto'>
           <div className='flex flex-col space-y-4 w-[60%]'>
@@ -88,7 +113,7 @@ function Chatbot() {
             className='text-white border border-neutral-500/50 focus:outline-none bg-neutral-800/20 rounded p-2 flex flex-grow mr-1 my-2'
           />
           <button type="submit"
-            className='bg-blue-500 rounded p-2 px-8 ml-1 my-2 flex flex-row justify-center items-center text-white gap-2 hover:bg-blue-600 duration-300'>Send <IoSend className='w-[20px] h-[20px]'/>
+            className='bg-blue-500 rounded p-2 px-8 ml-1 my-2 flex flex-row justify-center items-center text-white gap-2 hover:bg-blue-600 duration-300'>Send <IoSend className='w-[20px] h-[20px]' />
           </button>
         </form>
       </div>
