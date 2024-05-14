@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body,
+html, div, .container{
+    padding: 0;
+    margin: 0;
+}
+
+  /* Style for the scrollbar track */
+  ::-webkit-scrollbar {
+    width: 8px; /* width of the scrollbar */
+  }
+  
+  /* Style for the scrollbar handle */
+  ::-webkit-scrollbar-thumb {
+    background: #007bff; /* blue color */
+    border-radius: 4px; /* round corners */
+  }
+  
+  /* Style for the scrollbar track when hovered */
+  ::-webkit-scrollbar-thumb:hover {
+    /* background: #0056b3; dark blue color */
+  }
+  
+  /* Style for the scrollbar track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f138; /* light gray color */
+    border-radius: 4px; /* round corners */
+  }
