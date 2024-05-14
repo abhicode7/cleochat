@@ -43,22 +43,49 @@ function Chatbot() {
     localStorage.removeItem(personality.name);
   }
 
-  // useEffect(() => {
-  //   setChatLog([]);
-  // }, [personality]);
 
+  // Export chat log to a JSON file
+  const exportChatLog = () => {
+    const chatLogString = JSON.stringify(chatLog, null, 2);
+    const blob = new Blob([chatLogString], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${personality.name}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+
+
+  // Import chat log from a JSON file
+  const importChatLog = (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const importedChatLog = JSON.parse(event.target.result);
+      setChatLog(importedChatLog);
+    };
+    reader.readAsText(file);
+  };
+
+
+
+  // Load chat log from local storage when component mounts
   useEffect(() => {
 
     setChatLog([]);
-    // Load chat log from local storage when component mounts
     const storedChatLog = localStorage.getItem(personality.name);
     if (storedChatLog) {
       setChatLog(JSON.parse(storedChatLog));
     }
   }, [personality]);
 
+
+  // Save chat log to local storage whenever it changes
   useEffect(() => {
-    // Save chat log to local storage whenever it changes
     localStorage.setItem(personality.name, JSON.stringify(chatLog));
   }, [chatLog]);
 
@@ -75,9 +102,14 @@ function Chatbot() {
           <img src={personality.imageUrl} alt={personality.name} className='w-[95px] h-[120px] rounded-[10%] object-cover' />
           <div className='flex flex-col gap-4 text-white items-end'>{personality.name}
             <div className='gap-4 flex flex-row'>
-              <button className='text-white'><LuImport className='bg-blue-500 w-[40px] h-[40px] p-2 rounded-[10%]' />
+              <button className='text-white'>
+                <input type="file" onChange={importChatLog} style={{ display: 'none' }} id="importFile" accept=".json" />
+                <label htmlFor="importFile" className='text-white cursor-pointer'>
+                  <LuImport className='bg-blue-500 w-[40px] h-[40px] p-2 rounded-[10%]' /></label>
               </button>
-              <button className='text-white'><AiOutlineExport className='bg-green-500 w-[40px] h-[40px] p-2 rounded-[10%]' />
+              <button className='text-white'
+                onClick={exportChatLog}
+              ><AiOutlineExport className='bg-green-500 w-[40px] h-[40px] p-2 rounded-[10%]' />
               </button>
               <button className='text-white'
                 onClick={handleDelete}
