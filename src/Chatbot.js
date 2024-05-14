@@ -25,8 +25,6 @@ function Chatbot() {
 
   const handleSubmit = async (e) => {
 
-    // console.log(process.env.REACT_APP_GROQ);
-
     e.preventDefault();
     const inputCurrent= inputValue;
     setInputValue('');
