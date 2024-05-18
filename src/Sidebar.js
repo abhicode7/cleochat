@@ -14,7 +14,7 @@ function Sidebar() {
  return (
   
 
-    <div className={`w-[90vw] md:w-[100px] z-50 md:h-screen h-[100vh] absolute top-0 left-0 bg-[#00020f] flex flex-col items-center p-4 gap-6 justify-between md:translate-x-0 translate-x-[-100%] transition-transform duration-300
+    <div className={`w-[90vw] md:w-[100px] z-50 md:h-screen h-[100vh] absolute top-0 left-0 bg-[#00020f] flex flex-col items-center p-4 gap-6 justify-between md:translate-x-0 transition-transform duration-300
     ${sidebar ? 'translate-x-0' : 'translate-x-[-100%]'}
     
  `}>
