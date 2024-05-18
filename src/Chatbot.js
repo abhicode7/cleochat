@@ -6,6 +6,8 @@ import { IoSend } from "react-icons/io5";
 import { AiOutlineExport } from "react-icons/ai";
 import { LuImport } from "react-icons/lu";
 import { MdOutlineDeleteForever } from "react-icons/md";
+import { GiHamburgerMenu } from "react-icons/gi";
+import SidebarContext from './context/SidebarContext';
 
 
 
@@ -18,6 +20,7 @@ function Chatbot() {
   const [isLoading, setIsLoading] = useState(false);
   const { personality } = useContext(PersonaContext);
   const scrollRef = useRef(null);
+  const { sidebar, setSidebar } = useContext(SidebarContext);
 
 
   const handleInputChange = (e) => {
@@ -95,24 +98,31 @@ function Chatbot() {
     if (chatLog.length > 0) {
       scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
     }
-  })
+  }, [chatLog])
 
   return (
     <div className='w-full bg-gray-900 flex justify-center'>
       <div className='flex w-full flex-col h-screen items-center'>
-        <h1 className='text-3xl font-bold text-white p-4 flex flex-row justify-between w-[60%]'>
-          <img src={personality.imageUrl} alt={personality.name} className='w-[95px] h-[120px] rounded-[10%] object-cover' />
-          <div className='flex flex-col gap-4 text-white items-end'>{personality.name}
+        <h1 className='text-3xl font-bold text-white p-4 flex flex-row justify-between items-start md:w-[60%] w-[90%]'>
+        <button className='text-white md:hidden block items-center p-1'
+                onClick={() => setSidebar(true)}
+              ><GiHamburgerMenu />
+              </button>
+          <img src={personality.imageUrl} alt={personality.name} className='w-[50px] h-[50px] md:w-[95px] md:h-[120px] rounded-[10%] object-cover hidden md:block' />
+          <div className='flex flex-col gap-4 text-white items-end'><div className='flex flex-row gap-4 items-center'>{personality.name}<img src={personality.imageUrl} alt={personality.name} className='w-[50px] h-[50px] rounded-[10%] object-cover block md:hidden' /></div>
             <div className='gap-4 flex flex-row'>
               <button className='text-white'>
                 <input type="file" onChange={importChatLog} style={{ display: 'none' }} id="importFile" accept=".json" />
                 <label htmlFor="importFile" className='text-white cursor-pointer'>
                   <LuImport className='bg-blue-500 w-[40px] h-[40px] p-2 rounded-[10%]' /></label>
               </button>
-              <button className='text-white'
+
+              <button className='text-white '
                 onClick={exportChatLog}
-              ><AiOutlineExport className='bg-green-500 w-[40px] h-[40px] p-2 rounded-[10%]' />
+              >
+              <AiOutlineExport className='bg-green-500 w-[40px] h-[40px] p-2 rounded-[10%]' />
               </button>
+              
               <button className='text-white'
                 onClick={handleDelete}
               >
@@ -122,11 +132,11 @@ function Chatbot() {
             </div>
           </div></h1>
         <div className='flex flex-col flex-grow w-[100%] items-center p-4 overflow-y-auto'>
-          <div className='flex flex-col space-y-4 w-[60%]'>
+          <div className='flex flex-col space-y-4 md:w-[60%] w-[90%]'>
             {
               chatLog.map((message, index) => (
-                <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                  <div className={`flex ${message.role === 'user' ? 'bg-green-500' : 'bg-blue-500'} rounded-lg p-4 text-white max-w-[60%]`}>
+                <div key={index} className={`flex overflow-hidden ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
+                  <div className={`flex ${message.role === 'user' ? 'bg-green-500' : 'bg-blue-500'} rounded-lg p-4 text-white md:max-w-[70%] max-w-[95%] break-words`}>
                     {message.content}
                   </div>
                 </div>
@@ -137,21 +147,21 @@ function Chatbot() {
 
         </div>
         <form onSubmit={handleSubmit}
-          className='flex flex-row w-[60%] justify-between place-items-center mb-4'
+          className='flex flex-row md:w-[60%] w-[90%] justify-between place-items-center mb-4'
         >
           <div className='flex flex-row relative w-full items-center '>
-          <input
-            type="text"
-            value={inputValue}
-            onChange={handleInputChange}
-            placeholder={isLoading ? 'Replying...' : 'Ask me anything...'}
-            disabled={isLoading}
-            className='text-white border border-neutral-500/50 focus:outline-none bg-neutral-800/20 rounded p-2 px-4 flex flex-grow mr-1 my-2 h-[50px] w-full'
-          />
-          <button type="submit"
-          disabled={isLoading}
-            className='absolute right-0 bg-blue-500 rounded p-2 px-4 mr-2 flex flex-row justify-center items-center text-white hover:bg-blue-600 duration-300 disabled:bg-gray-800 h-[40px]'><IoSend className='w-[20px] h-[20px]' />
-          </button>
+            <input
+              type="text"
+              value={inputValue}
+              onChange={handleInputChange}
+              placeholder={isLoading ? 'Replying...' : `Message ${personality.name}`}
+              disabled={isLoading}
+              className='text-white border border-neutral-500/50 focus:outline-none bg-neutral-800/20 rounded p-2 px-4 flex flex-grow mr-1 my-2 h-[50px] w-full'
+            />
+            <button type="submit"
+              disabled={isLoading}
+              className='absolute right-0 bg-blue-500 rounded p-2 px-4 mr-2 flex flex-row justify-center items-center text-white hover:bg-blue-600 duration-300 disabled:bg-gray-800 h-[40px]'><IoSend className='w-[20px] h-[20px]' />
+            </button>
           </div>
         </form>
       </div>
