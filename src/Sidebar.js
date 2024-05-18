@@ -40,7 +40,7 @@ function Sidebar() {
                         // onClick={() => setPersonality(personality)}
                         onMouseEnter={() => setHover({state: true, i: index})}
                         onMouseLeave={() => setHover({state: false, i: index})}
-                        // title={personality.name} 
+                        
                     />
                 </div>
                 {/* Tooltip */}
