@@ -22,7 +22,7 @@ function Sidebar() {
             
             <img src='https://img.freepik.com/free-vector/chatbot-chat-message-vectorart_78370-4104.jpg' alt="logo" className='w-full h-full object-contain' />
         </div>
-        <h1 className='text-white font-bold text-3xl absolute top-0 right-0 mr-6 mt-6'
+        <h1 className='text-white font-bold text-3xl absolute top-0 right-0 mr-6 mt-6 block md:hidden'
         onClick={() => setSidebar(false)}
         >x</h1>
         <div className='flex flex-col items-center gap-6 md:w-auto w-[80%]'>
