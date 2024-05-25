@@ -15,7 +15,7 @@ html, div, .container{
   
   /* Style for the scrollbar handle */
   ::-webkit-scrollbar-thumb {
-    background: #007bff; /* blue color */
+    background: #DB0D8E; /* blue color */
     border-radius: 4px; /* round corners */
   }
   
@@ -26,6 +26,11 @@ html, div, .container{
   
   /* Style for the scrollbar track */
   ::-webkit-scrollbar-track {
-    background: #f1f1f138; /* light gray color */
+    background: #ffffff1f; /* light gray color */
     border-radius: 4px; /* round corners */
   }
+
+  /* body,
+  html {
+    overflow: hidden !important;
+  } */

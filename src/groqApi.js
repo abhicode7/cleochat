@@ -21,7 +21,7 @@ async function getGroqChatCompletion(inputValue, chatLog, personality) {
     messages: [
       {
         role: "system",
-        content: personality.description
+        content: personality.systemPrompt
       },
 
       ...reverseChatLog,
