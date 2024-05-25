@@ -103,18 +103,26 @@ function Chatbot({ onImport, onExport, onDelete }) {
     }
   }, [chatLog]);
 
+ 
   useEffect(() => {
-    if (chatLog.length > 0) {
-      scrollRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }
-  }, [chatLog])
-
-
-  useEffect(() => {
-    if (!isLoading && inputRef.current) {
+    if (inputRef.current) {
       inputRef.current.focus();
     }
-  }, [isLoading]);
+  }, [isLoading]); // Dependency on both chatLog and isLoading
+
+
+
+  // Ensure smooth scrolling when new messages arrive.
+  useEffect(() => {
+    if (chatLog.length > 0) {
+      setTimeout(() => {
+        scrollRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 0);
+    }
+  }, [chatLog]);
+
+
+  
 
 
 
@@ -199,6 +207,7 @@ function Chatbot({ onImport, onExport, onDelete }) {
 
         </div>
         <form onSubmit={handleSubmit}
+        disabled={isLoading}
           className='flex flex-row xl:w-[60%] w-[90%] justify-between place-items-center'
         >
           <div className='flex flex-row relative w-full items-center '>
@@ -206,9 +215,11 @@ function Chatbot({ onImport, onExport, onDelete }) {
               type="text"
               ref={inputRef}
               value={inputValue}
+              // disabled={isLoading}
               onChange={handleInputChange}
-              placeholder={isLoading ? 'Replying...' : `Message ${personality.name}`}
-              disabled={isLoading}
+              // onClick={handleFocus}
+              // placeholder={isLoading ? 'Replying...' : `Message ${personality.name}`}
+              placeholder={`Message ${personality.name}`}
               className='text-white border border-neutral-500/50 focus:outline-none bg-neutral-800/20 rounded p-2 px-8 flex flex-grow h-[60px] w-full rounded-full '
             />
             <button type="submit"
