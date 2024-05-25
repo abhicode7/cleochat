@@ -15,7 +15,7 @@ function Sidebar() {
     return (
 
 
-        <div className={`w-[90vw] xl:w-[100px] z-50 xl:h-screen h-[100vh] fixed top-0 left-0 bg-[#00020f] bg-white bg-opacity-[1%] backdrop-blur-[40px] border-r-[1px] border-white border-opacity-[10%] flex flex-col items-center p-4 gap-6 justify-between xl:translate-x-0 transition-transform duration-300
+        <div className={`w-[90%] xl:w-[100px] z-50 xl:h-screen h-[100svh] fixed top-0 left-0 bg-[#00020f] bg-white bg-opacity-[1%] backdrop-blur-[40px] border-r-[1px] border-white border-opacity-[10%] flex flex-col items-center p-4 gap-6 justify-between xl:translate-x-0 transition-transform duration-300
     ${sidebar ? 'translate-x-0' : 'translate-x-[-100%]'}
     
  `}>
@@ -26,14 +26,14 @@ function Sidebar() {
             <h1 className='text-white font-bold text-3xl absolute top-0 right-0 mr-6 mt-6 block xl:hidden'
                 onClick={() => setSidebar(false)}
             >x</h1>
-            <div className='flex flex-col items-center gap-4 xl:w-auto w-[80%] mb-12'>
+            <div className='flex flex-col items-center xl:gap-6 gap-2 xl:w-auto w-[80%] mb-4 xl:mb-12'>
                 {
 
                     personalities.map((personalityN, index) => (
-                        <div key={index} className={`relative flex flex-row justify-start items-center w-full max-w-[300px]  bg-opacity-[20%] p-2 rounded-full ${personality === personalityN ? 'bg-gradient-to-r from-[#CC5C6D] to-[#CC1175]' : 'bg-[#ffffff]'} xl:bg-none xl:bg-transparent`}
+                        <div key={index} className={`relative flex flex-row justify-start items-center w-full max-w-[300px]  bg-opacity-[20%] xl:p-0 p-1 rounded-full ${personality === personalityN ? 'bg-gradient-to-r from-[#CC5C6D] to-[#CC1175]' : 'bg-[#ffffff]'} xl:bg-none xl:bg-transparent`}
                             onClick={() => setPersonality(personalityN)}
                         >
-                            <div className={`rounded-full w-[70px] h-[70px] bg-black overflow-hidden ${personality === personalityN ? 'xl:border-2 xl:border-[#FF7388]' : ''}`}>
+                            <div className={`rounded-full xl:w-[70px] xl:h-[70px] w-[50px] h-[50px] bg-black overflow-hidden ${personality === personalityN ? 'xl:border-2 xl:border-[#FF7388]' : ''}`}>
                                 <img
                                     src={personalityN.imageUrl}
                                     alt={personalityN.name}
@@ -57,8 +57,10 @@ function Sidebar() {
 
                 }
             </div>
-
-            <img src='/coming-soon.png' alt="logo" className='w-auto h-auto object-contain' />
+            
+            <div className='w-[90px] h-[90px] xl:w-auto xl:h-auto overflow-hidden'>
+            <img src='/coming-soon.png' alt="logo" className='xl:w-auto xl:h-auto w-full h-full object-contain' />
+            </div>
 
 
         </div>

@@ -24,17 +24,17 @@ function Detailsbar({onImport, onExport, onDelete}) {
  return (
   
  
-    <div className={`bg-[#ffffff] w-screen h-screen z-50 fixed top-0 right-0 bg-[#00020f] bg-white bg-opacity-[1%] backdrop-blur-[40px] border-r-[1px] border-white border-opacity-[10%] flex flex-col items-center p-4 gap-6 justify-between transition-transform transform duration-300 overflow-hidden
+    <div className={`bg-[#ffffff] w-[100%] h-[100svh] z-50 fixed top-0 right-0 bg-[#00020f] bg-white bg-opacity-[1%] backdrop-blur-[40px] border-r-[1px] border-white border-opacity-[10%] flex flex-col items-center p-4 gap-6 justify-between transition-transform transform duration-300 overflow-hidden
     xl:hidden ${detailsbar ? 'translate-x-0' : 'translate-x-[100%]'} `}>
         
         <h1 className='text-white font-bold text-3xl absolute top-0 right-0 mr-6 mt-6 block xl:hidden'
         onClick={() => setDetailsbar(false)}
         >x</h1>
 
-<div className='w-[100%] h-[100%] max-w-[500px] flex flex-col items-center justify-between p-16 flex'>
-              <div className='flex flex-col justify-center items-center gap-16'>
+<div className='w-[100%] h-[100svh] max-w-[900px] flex flex-col items-center justify-between p-4 flex'>
+              <div className='flex flex-col justify-center items-center gap-6'>
             <img src={personality.imageUrl} alt={personality.name} className='w-[130px] h-[180px] rounded-[10%] object-cover block' />
-            <div className='flex flex-col gap-4 items-center'>
+            <div className='flex flex-col gap-2 items-center'>
             <h1 className='text-3xl font-bold text-white text-center'>{personality.name}</h1>
             <p className='text-white text-center'>{personality.description}</p>
             </div>
