@@ -4,7 +4,7 @@
 
 Welcome to **Cleochat**, the AI chatbot with multiple personalities! 🎭✨ Engage with different personas and enjoy a unique chat experience every time.
 
-## ![Hosted Link](https://cleochat-eta.vercel.app/)
+**Hosted Link:** [https://cleochat-eta.vercel.app/](https://cleochat-eta.vercel.app/)
 
 
 ## Features 🚀
