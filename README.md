@@ -6,6 +6,9 @@ Welcome to **Cleochat**, the AI chatbot with multiple personalities! 🎭✨ Eng
 
 **Hosted Link:** [https://cleochat-eta.vercel.app/](https://cleochat-eta.vercel.app/)
 
+## Tech Stack 💻
+**React.js** <img width="100" alt="image" src="https://cdn.iconscout.com/icon/free/png-256/free-react-1-282599.png">
+**Tailwind** <img width="100" alt="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeKPw4CK4jcH7udsFHZdiB3iIOuI3fUCsxUZosXy4Y1yd25NA-dzCBPrSDIhg1BwObl3w&usqp=CAU">
 
 ## Features 🚀
 - **Multiple Personas**: Interact with various personalities, each with a unique avatar and description.
@@ -19,7 +22,7 @@ Welcome to **Cleochat**, the AI chatbot with multiple personalities! 🎭✨ Eng
 ## Screenshots 📸
 ![Screenshot 1](https://github.com/abhicode7/cleochat/assets/87370756/ab02f864-4b64-4afd-afad-c63943642567)
 <img width="350" alt="image" src="https://github.com/abhicode7/cleochat/assets/87370756/d6fc02bd-cce6-4200-80bc-2691e5198414">
-<img width="350" alt="image" src="https://github.com/abhicode7/cleochat/assets/87370756/d6fc02bd-cce6-4200-80bc-2691e5198414">
+<img width="350" alt="image" src="https://github.com/abhicode7/cleochat/assets/87370756/f2b0f77c-f74e-460e-b6fc-4eeadf77e23e">
 
 ## Installation 🛠️
 To get started with Cleochat, follow these steps:
