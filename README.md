@@ -7,13 +7,18 @@ Welcome to **Cleochat**, the AI chatbot with multiple personalities! 🎭✨ Eng
 **Hosted Link:** [https://cleochat-eta.vercel.app/](https://cleochat-eta.vercel.app/)
 
 ## Tech Stack 💻
-<p align="center">
-  <strong>React.js</strong><br>
-  <img width="100" alt="React" src="https://cdn.iconscout.com/icon/free/png-256/free-react-1-282599.png">
-  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  <strong>Tailwind</strong><br>
-  <img width="100" alt="Tailwind" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeKPw4CK4jcH7udsFHZdiB3iIOuI3fUCsxUZosXy4Y1yd25NA-dzCBPrSDIhg1BwObl3w&usqp=CAU">
-</p>
+<table>
+  <tr>
+    <td align="center">
+      <strong>React.js</strong><br>
+      <img width="100" alt="React" src="https://cdn.iconscout.com/icon/free/png-256/free-react-1-282599.png">
+    </td>
+    <td align="center">
+      <strong>Tailwind</strong><br>
+      <img width="100" alt="Tailwind" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeKPw4CK4jcH7udsFHZdiB3iIOuI3fUCsxUZosXy4Y1yd25NA-dzCBPrSDIhg1BwObl3w&usqp=CAU">
+    </td>
+  </tr>
+</table>
 
 
 ## Features 🚀
