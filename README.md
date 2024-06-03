@@ -1,16 +1,11 @@
-<img width="298" alt="image" src="https://github.com/abhicode7/cleochat/assets/87370756/ab02f864-4b64-4afd-afad-c63943642567">![Cleochat Logo](https://cleochat-eta.vercel.app/logo.png) 
+![Cleochat Logo](https://cleochat-eta.vercel.app/logo.png) 
 
 # Cleochat 🤖💬
 
 Welcome to **Cleochat**, the AI chatbot with multiple personalities! 🎭✨ Engage with different personas and enjoy a unique chat experience every time.
 
-## [![Hosted Link](https://cleochat-eta.vercel.app/)
+## ![Hosted Link](https://cleochat-eta.vercel.app/)
 
-## Table of Contents
-- [Features](#features)
-- [Screenshots](#screenshots)
-- [Installation](#installation)
-- [Usage](#usage)
 
 ## Features 🚀
 - **Multiple Personas**: Interact with various personalities, each with a unique avatar and description.
@@ -23,8 +18,8 @@ Welcome to **Cleochat**, the AI chatbot with multiple personalities! 🎭✨ Eng
 
 ## Screenshots 📸
 ![Screenshot 1](https://github.com/abhicode7/cleochat/assets/87370756/ab02f864-4b64-4afd-afad-c63943642567)
-![Screenshot 2](https://github.com/abhicode7/cleochat/assets/87370756/d6fc02bd-cce6-4200-80bc-2691e5198414)
-![Screenshot 3](https://github.com/abhicode7/cleochat/assets/87370756/d6fc02bd-cce6-4200-80bc-2691e5198414)
+<img width="350" alt="image" src="https://github.com/abhicode7/cleochat/assets/87370756/d6fc02bd-cce6-4200-80bc-2691e5198414">
+<img width="350" alt="image" src="https://github.com/abhicode7/cleochat/assets/87370756/d6fc02bd-cce6-4200-80bc-2691e5198414">
 
 ## Installation 🛠️
 To get started with Cleochat, follow these steps:
