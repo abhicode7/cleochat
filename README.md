@@ -7,8 +7,14 @@ Welcome to **Cleochat**, the AI chatbot with multiple personalities! 🎭✨ Eng
 **Hosted Link:** [https://cleochat-eta.vercel.app/](https://cleochat-eta.vercel.app/)
 
 ## Tech Stack 💻
-**React.js** <img width="100" alt="image" src="https://cdn.iconscout.com/icon/free/png-256/free-react-1-282599.png">
-**Tailwind** <img width="100" alt="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeKPw4CK4jcH7udsFHZdiB3iIOuI3fUCsxUZosXy4Y1yd25NA-dzCBPrSDIhg1BwObl3w&usqp=CAU">
+<p align="center">
+  <strong>React.js</strong><br>
+  <img width="100" alt="React" src="https://cdn.iconscout.com/icon/free/png-256/free-react-1-282599.png">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <strong>Tailwind</strong><br>
+  <img width="100" alt="Tailwind" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeKPw4CK4jcH7udsFHZdiB3iIOuI3fUCsxUZosXy4Y1yd25NA-dzCBPrSDIhg1BwObl3w&usqp=CAU">
+</p>
+
 
 ## Features 🚀
 - **Multiple Personas**: Interact with various personalities, each with a unique avatar and description.
